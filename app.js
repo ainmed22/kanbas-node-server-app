@@ -8,10 +8,18 @@ import "dotenv/config";
 
 const app = express();
 
+const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    "http://transcendent-kringle-19545c.netlify.app/",
+    "https://transcendent-kringle-19545c.netlify.app/",
+    "http://localhost:3000/",
+    "http://localhost:4000/"
+]
+
 app.use(
     cors({
         credentials: true,
-        origin: process.env.FRONTEND_URL
+        origin: allowedOrigins
     })
 );
 
