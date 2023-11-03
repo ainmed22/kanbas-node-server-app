@@ -13,7 +13,7 @@ const allowedOrigins = [
     "http://transcendent-kringle-19545c.netlify.app/",
     "https://transcendent-kringle-19545c.netlify.app/",
     "http://localhost:3000/",
-    "http://localhost:4000/"
+    "https://localhost:3000/"
 ]
 
 app.use(
