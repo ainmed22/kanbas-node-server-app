@@ -10,10 +10,10 @@ const app = express();
 
 const allowedOrigins = [
     process.env.FRONTEND_URL,
-    "http://transcendent-kringle-19545c.netlify.app/",
-    "https://transcendent-kringle-19545c.netlify.app/",
-    "http://localhost:3000/",
-    "https://localhost:3000/"
+    "http://transcendent-kringle-19545c.netlify.app",
+    "https://transcendent-kringle-19545c.netlify.app",
+    "http://localhost:3000",
+    "https://localhost:3000"
 ]
 
 app.use(
