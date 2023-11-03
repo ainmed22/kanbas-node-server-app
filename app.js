@@ -12,6 +12,25 @@ const allowedOrigins = [
     process.env.FRONTEND_URL,
     "http://transcendent-kringle-19545c.netlify.app",
     "https://transcendent-kringle-19545c.netlify.app",
+    
+    "http://a1--transcendent-kringle-19545c.netlify.app",
+    "https://a1--transcendent-kringle-19545c.netlify.app",
+    
+    "http://a2--transcendent-kringle-19545c.netlify.app",
+    "https://a2--transcendent-kringle-19545c.netlify.app",
+    
+    "http://a3--transcendent-kringle-19545c.netlify.app",
+    "https://a3--transcendent-kringle-19545c.netlify.app",
+    
+    "http://a4--transcendent-kringle-19545c.netlify.app",
+    "https://a4--transcendent-kringle-19545c.netlify.app",
+    
+    "http://a5--transcendent-kringle-19545c.netlify.app",
+    "https://a5--transcendent-kringle-19545c.netlify.app",
+    
+    "http://a6--transcendent-kringle-19545c.netlify.app",
+    "https://a6--transcendent-kringle-19545c.netlify.app",
+    
     "http://localhost:3000",
     "https://localhost:3000"
 ]
