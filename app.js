@@ -3,8 +3,13 @@ import Hello from "./hello.js";
 import Lab5 from "./lab5.js";
 import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
+import ProjectRoutes from "./projectroutes.js";
 import cors from "cors";
 import "dotenv/config";
+import mongoose from "mongoose";
+import UserRoutes from "./users/routes.js";
+
+mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 
 const app = express();
 
@@ -31,6 +36,9 @@ const allowedOrigins = [
     "http://a6--transcendent-kringle-19545c.netlify.app",
     "https://a6--transcendent-kringle-19545c.netlify.app",
     
+    "http://project--transcendent-kringle-19545c.netlify.app",
+    "https://project--transcendent-kringle-19545c.netlify.app",
+    
     "http://localhost:3000",
     "https://localhost:3000"
 ]
@@ -44,8 +52,11 @@ app.use(
 
 app.use(express.json());
 
+UserRoutes(app);
+
 ModuleRoutes(app);
 CourseRoutes(app);
+ProjectRoutes(app);
 Lab5(app);
 Hello(app);
 
