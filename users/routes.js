@@ -40,12 +40,6 @@ function UserRoutes(app) {
         const { username, password } = req.body;
         const currentUser = await dao.findUserByCredentials(username, password);
         req.session['currentUser'] = currentUser;
-        
-        res.cookie('connect.sid', req.sessionID, {
-            sameSite: 'None',
-            secure: true,
-        });
-        
         res.json(currentUser);
         
         const setCookieHeader = res.get('Set-Cookie');
