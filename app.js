@@ -58,6 +58,10 @@ const sessionOptions = {
     secret: "any string",
     resave: false,
     saveUninitialized: false,
+    cookie: {
+        sameSite: "None",
+        secure: true, // Required when SameSite=None
+    },
 };
 
 /*
