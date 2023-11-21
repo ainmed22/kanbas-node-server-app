@@ -41,6 +41,9 @@ function UserRoutes(app) {
         const currentUser = await dao.findUserByCredentials(username, password);
         req.session['currentUser'] = currentUser;
         res.json(currentUser);
+        
+        const setCookieHeader = res.get('Set-Cookie');
+        console.log('Set-Cookie Header:', setCookieHeader);
     };
     const signout = (req, res) => {
         req.session.destroy();
