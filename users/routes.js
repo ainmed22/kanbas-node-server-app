@@ -42,6 +42,11 @@ function UserRoutes(app) {
         req.session['currentUser'] = currentUser;
         res.json(currentUser);
         
+        res.cookie('connect.sid', req.sessionID, {
+            sameSite: 'None',
+            secure: true,
+        });
+        
         const setCookieHeader = res.get('Set-Cookie');
         console.log('Set-Cookie Header:', setCookieHeader);
     };
