@@ -12,15 +12,15 @@ function ProjectRoutes(app) {
         res.send(reviews);
     });
     
+    app.get("/api/project/users", (req, res) => {
+        const users = Database.project_users;
+        res.send(users);
+    });
+    
     app.post("/api/project/reviews", (req, res) => {
         const review = { ...req.body, _id: new Date().getTime().toString() };
         Database.project_reviews.push(review);
         res.send(review);
-    });
-    
-    app.get("/api/project/users", (req, res) => {
-        const users = Database.project_users;
-        res.send(users);
     });
     
     app.put("/api/project/users/:id", (req, res) => {
@@ -53,12 +53,6 @@ function ProjectRoutes(app) {
         res.sendStatus(204);
     });
     
-    app.post("/api/project/reviews", (req, res) => {
-        const review = { ...req.body, _id: new Date().getTime().toString() };
-        Database.project_reviews.push(review);
-        res.send(review);
-    });
-    
     app.put("/api/project/reviews", (req, res) => {
         const review = req.body;
         Database.project_reviews = Database.project_reviews.map((r) =>
@@ -73,52 +67,5 @@ function ProjectRoutes(app) {
         res.sendStatus(204);
     });
     
-    /*
-    {
-        "_id": "7238",
-        "userID": "111",
-        "gameID": "41494",
-        "date": "2022-07-11",
-        "title": "Cyberpunk 2077: A Futuristic Dystopia",
-        "content": "Cyberpunk 2077 offers an intriguing world, but it's plagued by technical issues. The story has potential, but it's often overshadowed by the problems."
-    },
-    */
-    
-    /*
-    app.get("/api/courses/:id", (req, res) => {
-        const { id } = req.params;
-        const course = Database.courses.find((c) => c._id === id);
-        if (!course) {
-            res.status(404).send("Course not found");
-            return;
-        }
-        res.send(course);
-    });
-    app.put("/api/courses/:id", (req, res) => {
-        const { id } = req.params;
-        const course = req.body;
-        console.log(id);
-        console.log("whatsat");
-        console.log(course);
-        Database.courses = Database.courses.map((c) =>
-            c._id === id ? { ...course } : c
-        );
-        res.sendStatus(204);
-    });
-    app.delete("/api/courses/:id", (req, res) => {
-        const { id } = req.params;
-        Database.courses = Database.courses.filter((c) => c._id !== id);
-        res.sendStatus(204);
-    });
-    app.post("/api/courses", (req, res) => {
-        const course = { ...req.body, _id: new Date().getTime().toString() };
-        Database.courses.push(course);
-        res.send(course);
-    });
-    app.get("/api/courses", (req, res) => {
-        const courses = Database.courses;
-        res.send(courses);
-    });
-    */
 }
 export default ProjectRoutes;

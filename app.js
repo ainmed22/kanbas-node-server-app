@@ -7,12 +7,13 @@ import ProjectRoutes from "./projectroutes.js";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
-import UserRoutes from "./users/routes.js";
+// import UserRoutes from "./users/routes.js";
 import session from "express-session";
+import NewProjectRoutes from "./project/routes.js";
 
 // mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
-const CONNECTION_ADDENDUM = "kanbas?retryWrites=true&w=majority"
+const CONNECTION_ADDENDUM = "project?retryWrites=true&w=majority"
 mongoose.connect(CONNECTION_STRING + CONNECTION_ADDENDUM);
 
 const app = express();
@@ -80,7 +81,8 @@ app.use(session(sessionOptions));
 
 app.use(express.json());
 
-UserRoutes(app);
+// UserRoutes(app);
+NewProjectRoutes(app);
 
 ModuleRoutes(app);
 CourseRoutes(app);
